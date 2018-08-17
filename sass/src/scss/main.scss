@@ -1,0 +1,89 @@
+/* variables */
+
+$primary-font-stack: "Helvetica Neue",Helvetica,Arial,sans-serif;
+$primary-color: #333;
+
+$success: #3c763d;
+$warning: #8a6d3b;
+$error: #a94442;
+
+/* mixins */
+@mixin clearfix() {
+    &:after{
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/* universal settings */
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font: 100% $primary-font-stack;
+    color: $primary-color;
+
+    margin: 0 auto;
+    padding: 0;
+    width: 1170px;
+}
+
+/* utility classes */
+.clearfix {
+    @include clearfix();
+}
+
+.text-success {
+    color: $success;
+}
+
+.text-warning {
+    color: $warning;
+}
+
+.text-error {
+    color: $error;
+}
+
+.message {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    color: #333;
+}
+
+.message-success {
+    @extend .message;
+    color: $success;
+    border-color: $success;
+}
+
+.message-warning {
+    @extend .message;
+    color: $warning;
+    border-color: $warning;
+}
+
+.message-error {
+    @extend .message;
+    color: $error;
+    border-color: $error;
+}
+
+
+/* Grid */
+.row {
+    @include clearfix();
+}
+
+.col {
+    float: left;
+    width: 25%;
+    padding: .5rem;
+
+    /* debug */
+    border: 1px solid #990000;
+    background: #fff;
+}
