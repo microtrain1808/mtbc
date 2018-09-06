@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Intervals</title>
+      <style>
+        #demo{
+          background: #000;
+          height: 50px;
+          width: 50px;
+        }
+      </style>
+  </head>
+  <body>
+      <div id="demo"></div>
+      <button id="GrowBtn">Grow</button>
+    <script>
+
+      function Grower(){
+        this.width = document.getElementById('demo').offsetWidth;
+        this.num = this.width;
+
+        this.timer = setInterval(()=>{
+          this.num++;
+
+          document.getElementById('demo').style = 'width:' + this.num + 'px;';
+
+          if(this.num === this.width + 50){
+            clearInterval(this.timer)
+          }
+
+        }, 100);
+      }
+
+      var btn = document.getElementById('GrowBtn');
+      btn.addEventListener('click', function(){
+        new Grower();
+      });
+
+
+    </script>
+  </body>
+</html>

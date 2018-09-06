@@ -4,12 +4,37 @@
       <title>Using the development console.</title>
   </head>
   <body>
-    
-    <div id="MyText">Hello World</div>
+    <button id="haha">Click Me</button>
     <div id="NewText"></div>
     <script>
-        var text = document.getElementById('MyText').innerHTML;
-        document.getElementById('NewText').innerHTML = text;
+        
+
+        var ha = document.getElementById('haha');
+        var jumps = 0;
+        ha.addEventListener('mouseover', function(){
+          ha.style='position: absolute; top:' 
+            + Math.random() * 600 
+            + 'px; left:'
+            + Math.random() * 600 
+            + 'px';
+
+            jumps++;
+
+            var insults = [
+              'You suck!',
+              'Ha ha ha, can\'t catch me',
+              'Just kill yourself',
+              'Give up looser!',
+              'Neiner neiner neiner you ain\'t got no...'
+            ];
+
+            if(jumps > 5){
+              document.getElementById('NewText').innerHTML 
+                = insults[Math.floor(Math.random()*insults.length)];
+              jumps = 0;
+            }
+        });
+
     </script>
   </body>
 </html>

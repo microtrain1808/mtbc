@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>If/Else</title>
+  </head>
+  <body>
+    
+    <script>
+        var label=null;
+        var color=null;
+        var GET={};
+        var uri = document.location.toString();
+
+console.log(uri);
+        if(uri.indexOf('?' !== -1)){
+            var query = uri
+                . replace(/^.*?\?/,'')
+                . replace(/#.*$/,'')
+                . split('&');
+                
+            for(var i=0; i<query.length; i++){
+                var params = decodeURIComponent(query[i]).split('=');
+                GET[params[0]]=params[1];
+            }
+        }
+
+        if(GET['color']!=='undefined'){
+            color='#' + GET['color'];
+        }
+
+        if(color === '#990000'){
+            label = 'red';
+        }else if(color === '#009900'){
+            label = 'green';
+        }else if(color === '#000099'){
+            label = 'blue';
+        }else{
+            label = 'unknown';
+        }
+
+        document.write(`<div style="color:${color}">The color is ${label}</div>`);
+    </script>
+
+    <script>
+
+        var color = null;
+        var GET = {};
+        
+        //parse the GET params out of the URL
+        if(document.location.toString().indexOf('?') !== -1) {
+            var query = document.location
+               .toString()
+               // get the query string
+               .replace(/^.*?\?/, '')
+               // and remove any existing hash string (thanks, @vrijdenker)
+               .replace(/#.*$/, '')
+               .split('&');
+        
+            for(var i=0, l=query.length; i<l; i++) {
+               var aux = decodeURIComponent(query[i]).split('=');
+               GET[aux[0]] = aux[1];
+            }
+        }
+        
+        //Check for get parameters
+        if(GET['color'] !== 'undefined'){
+            color = `#${GET['color']}`;
+        }
+        
+        switch (color) {
+          case 'ff0000':
+          case 'ff9900':
+            console.log('The color is red');
+            break;
+          case '009900':
+          case '00ff00':
+            console.log('The color is green');
+            break;
+          case '0000ff':
+            console.log('The color is blue');
+            break;
+          default:
+            console.log('Sorry, I cannot determine the color');
+            break;
+        }
+        
+    </script>
+  </body>
+</html>

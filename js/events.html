@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Events</title>
+  </head>
+  <body>
+    
+    <div id="demo"></div>
+    <button id="time">What time is it?</button>
+
+    <select id="options">
+      <option>--Pick and option--</option>
+      <option value="a">A</option>
+      <option value="b">B</option>
+      <option value="c">C</option>
+    </select>
+
+    <script>
+      function showDate(element) {
+        document.getElementById(element).innerHTML=Date();
+      }
+
+      var btn = document.getElementById('time');
+      btn.addEventListener('click', function(){
+        showDate('demo')
+      });
+
+      function setValue(element){
+        let option = document.getElementById('options').value;
+        document.getElementById(element).innerHTML=option;
+      }
+
+      var list = document.getElementById('options');
+      list.addEventListener('change', function(){
+        setValue('demo');
+      });
+
+
+    </script>
+  </body>
+</html>

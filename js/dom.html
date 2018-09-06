@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>Walking the DOM</title>
+  </head>
+  <body>
+    
+    <a id="a" href="#">Demo Link</a>
+    <p id="bold">The quick brown fox jumped over the lazy dog.</p>
+    <p class="b blue">Hello world, this is a paragraph.</p>
+
+    <input name="email" type="email">
+    <script>
+        var elem = document.getElementById('a');
+        elem.style='color: #ff0000';
+
+        var list = document.getElementsByTagName('p');
+        list[0].style='color: #ff0000';
+
+        var list = document.getElementsByClassName('b');
+        list[0].style='color: #00ff00';
+
+        var list = document.getElementsByName('email');
+        list[0].style='border: 1px solid #ff0000';
+
+        //Find the element with an id of bold
+        var bold = document.querySelector('#bold');
+
+        //Make it bold
+        bold.style = 'font-weight: bold;';
+
+        //Find all elements with a class of blue
+        var blues = document.querySelectorAll('p');
+
+        //Loop through all of the matching elements
+        for (var i=0; i<blues.length; i++) {
+            //Make them blue
+            blues[i].style = 'color: #0000FF;';
+        }
+
+    </script>
+  </body>
+</html>
